@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Калькулятор ипотеки</title>
+    <title>Калькулятор</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,41 +12,26 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            height: 100vh;
             background-color: #f4f4f9;
         }
-        
-        #mortgage-frame-calculator_wrap {
+        #mortgage-frame-calculator {
             width: 100%;
             max-width: 600px;
             height: 80vh;
-            margin: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-            overflow: auto;
-            background-color: #fff; /* Добавим фон для контейнера */
-        }
-
-        .loading-message {
-            text-align: center;
-            padding: 20px;
-            font-size: 18px;
-            color: #666;
+            overflow: hidden; /* Убираем скролл внутри фрейма */
         }
     </style>
 </head>
 <body>
-    <div id="mortgage-frame-calculator_wrap" data-id="574082cdcbab1f74d6da5817292230ee" data-color="#67C71C" data-color-hover="#cc0" data-erid="LjN8KWacg">
-        <div class="loading-message">Загрузка калькулятора...</div>
+    <div id="mortgage-frame-calculator" 
+         data-id="574082cdcbab1f74d6da5817292230ee" 
+         data-color="#67C71C" 
+         data-color-hover="#cc0" 
+         data-erid="LjN8KWacg">
     </div>
     <script type="text/javascript" src="https://agents-test.inguru.dev/assets/js/mortgage-frame-calc.js"></script>
-    <script>
-        // Обработка ошибок загрузки скрипта
-        window.onload = function() {
-            if (typeof MortgageFrameCalculator === 'undefined') {
-                document.querySelector('.loading-message').textContent = 'Не удалось загрузить калькулятор. Пожалуйста, попробуйте позже.';
-            }
-        };
-    </script>
 </body>
 </html>
