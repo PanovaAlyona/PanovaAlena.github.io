@@ -3,35 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Калькулятор</title>
+    <title>Калькуляторы</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            padding: 20px;
             background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; /* Расстояние между фреймами */
         }
-        #mortgage-frame-calculator {
+        .frame-container {
             width: 100%;
             max-width: 600px;
             height: 80vh;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-            overflow: hidden; /* Убираем скролл внутри фрейма */
+            overflow: auto; /* Добавляем скролл внутри фрейма */
+            background-color: #fff; /* Фон для контейнера */
         }
     </style>
 </head>
 <body>
-    <div id="mortgage-frame-calculator" 
-         data-id="574082cdcbab1f74d6da5817292230ee" 
-         data-color="#67C71C" 
-         data-color-hover="#cc0" 
-         data-erid="LjN8KWacg">
+    <!-- Первый фрейм -->
+    <div class="frame-container">
+        <div id="mortgage-frame-calculator" 
+             data-id="574082cdcbab1f74d6da5817292230ee" 
+             data-color="#67C71C" 
+             data-color-hover="#cc0" 
+             data-erid="LjN8KWacg">
+        </div>
     </div>
     <script type="text/javascript" src="https://agents-test.inguru.dev/assets/js/mortgage-frame-calc.js"></script>
+
+    <!-- Второй фрейм -->
+    <div class="frame-container">
+        <div id="frame-calculator_wrap" 
+             data-id="574082cdcbab1f74d6da5817292230ee" 
+             data-color="#67C71C" 
+             data-color-hover="#cc0" 
+             data-erid="LjN8KWacg">
+        </div>
+    </div>
+    <script type="text/javascript" src="https://osago.finuslugi.ru/js/frame-calc.js"></script>
+
+    <!-- Обработка ошибок -->
+    <script>
+        window.onload = function() {
+            // Проверка загрузки первого скрипта
+            if (typeof MortgageFrameCalculator === 'undefined') {
+                console.error('Не удалось загрузить mortgage-frame-calc.js');
+            }
+
+            // Проверка загрузки второго скрипта
+            if (typeof FrameCalculator === 'undefined') {
+                console.error('Не удалось загрузить frame-calc.js');
+            }
+        };
+    </script>
 </body>
 </html>
